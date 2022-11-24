@@ -1,4 +1,5 @@
 // Bibliotecas
+// Libraries
 #include <stdlib.h>
 #include <time.h>
 #include "biblioteca.h" //Biblioteca Pessoal
@@ -18,28 +19,41 @@ int dif = 0, gdisom[999], gdisub[999], gdimul[999], gdidiv[999];
 
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=////-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=////-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
-int main() // Jogo Matemático
+int main() // Jogo Matemático // Math game
 {
 
-    SetConsoleTitle("Jogo Matematico"); // Colocar o Nome do Jogo no Console
+    SetConsoleTitle("Jogo Matematico"); // Colocar o Nome do Jogo no Console // Put the Game Name in the Console
 
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
-    // op        = Opções Início
-    // odf       = Opções de Dificuldade e Finalização
+    // op        = Opções Início  
+    // odf       = Opções de Dificuldade e Finalização 
     // odg       = Opção do Gabarito
+    // op = Home Options
+    // odf = Difficulty and Finishing Options
+    // odg = Template Option
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // fass      = Número Aleatório Fácil - Soma e Subtração
     // mess      = Número Aleatório Médio - Soma e Subtração
     // diss      = Número Aleatório Dificil - Soma e Subtração
+    // fass = Easy Random Number - Addition and Subtraction
+    // mess = Average Random Number - Add and Subtract
+    // diss = Difficult Random Number - Addition and Subtraction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // famd      = Número Aleatório Fácil - Multiplicação
     // famd      = Número Aleatório Médio - Multiplicação
     // famd      = Número Aleatório Difícil - Multiplicação
+    // famd = Easy Random Number - Multiplication
+    // famd = Mean Random Number - Multiplication
+    // famd = Hard Random Number - Multiplication
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // fadv      = Número Aleatório Fácil - Divisão
     // medv      = Número Aleatório Médio - Divisão
     // didv      = Número Aleatório Difícil - Divisão
     // resto     = Resto da Divisão
+    // fadv = Easy Random Number - Division
+    // medv = Mean Random Number - Division
+    // didv = Hard Random Number - Division
+    // remainder = Remainder of Division
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // resp      = Resposta
     // acertos   = Adiciona um Acerto para o Placar
@@ -47,34 +61,58 @@ int main() // Jogo Matemático
     // limp      = Limpeza
     // vcont     = Muda a Coluna do Vetor
     // dif       = Diz a Dificuldade que Foi Jogada
+    // resp = Answer
+    // hits = Adds a Hit to the Scoreboard
+    // errors = Adds an Error to the Scoreboard
+    // limp = Cleanup
+    // vcont = Change Vector Column
+    // dif = Tells the Difficulty Played
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // vscerto   = Vetor da Resposta Certa em Soma
     // vsresp    = Vetor da Resposta do Usuário em Soma
+    // vscerto = Right Answer Vector in Sum
+    // vsresp = Vector of User Response in Sum
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // vsucerto  = Vetor da Resposta Certa em Subtração
     // vsuresp   = Vetor da Resposta do Usuário em Subtração
+    // vsucerto = Right Answer Vector in Subtraction
+    // vsuresp = Subtraction User Response Vector
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // vmucerto  = Vetor da Resposta Certa em Multiplicação
     // vmuresp   = Vetor da Resposta do Usuário em Multiplicação
+    // vmucerto = Right Answer Vector in Multiplication
+    // vmuresp = Multiplication User Response Vector
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // vdicerto  = Vetor da Resposta Certa em Divisão
     // vdiresp   = Vetor da Resposta do Usuário em Divisão
+    // vdicerto = Right Answer Vector in Division
+    // vdiresp = User Response Vector in Division
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // vdircerto = Vetor do Resto Certo em Divisão
     // vdirresp  = Vetor da Resposta do Resto do Usuário em Divisão
+    // vdircerto = Right Remainder Vector in Division
+    // vdirresp = User Remainder Response Vector in Division
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // gdisom    = Grava a Dificuldade Jogada na Modalidade de Soma para Mostrar no Gabarito
     // gdisub    = Grava a Dificuldade Jogada na Modalidade de Subtração para Mostrar no Gabarito
     // gdimul    = Grava a Dificuldade Jogada na Modalidade de Multiplicação para Mostrar no Gabarito
     // gdidiv    = Grava a Dificuldade Jogada na Modalidade de Divisão para Mostrar no Gabarito
+    // gdisom = Saves Difficulty Played in Sum Mode to Display in Feedback
+    // gdisub = Saves Difficulty Played in Subtraction Mode to Display in Feedback
+    // gdimul = Saves Difficulty Played in Multiply Mode to Display in Template
+    // gdidiv = Saves Difficulty Played in Split Mode to Display in Template
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
     // csoma     = Mostra se o Jogador Já Jogou o Jogo da Soma
     // csub      = Mostra se o Jogador Já Jogou o Jogo da Subtração
     // cmul      = Mostra se o Jogador Já Jogou o Jogo da Multiplicação
     // cdiv      = Mostra se o Jogador Já Jogou o Jogo da Divisão
+    // csoma = Shows if the Player has already played the Sum Game
+    // csub = Shows if the Player has already played the Subtraction Game
+    // cmul = Shows if the Player has already played the Multiplication Game
+    // cdiv = Shows if the Player has already played the division game
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
-    loading(); // Carregamento do Jogo
+    loading(); // Carregamento do Jogo // Game Loading
 
     do
     {
@@ -83,27 +121,27 @@ int main() // Jogo Matemático
         srand((unsigned)time(NULL));
         fass1 = 1 + (rand() % 100);
         fass2 = 1 + (rand() % 100);
-        mess1 = 101 + (rand() % 400); // Gerando Números Aleatórios//
+        mess1 = 101 + (rand() % 400); // Gerando Números Aleatórios// // Generating Random Numbers //
         mess2 = 101 + (rand() % 400);
         diss1 = 501 + (rand() % 900);
         diss2 = 501 + (rand() % 900);
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
         famd1 = 1 + (rand() % 10);
         famd2 = 1 + (rand() % 10);
-        memd1 = 10 + (rand() % 15); // Gerando Números Aleatórios//
+        memd1 = 10 + (rand() % 15); // Gerando Números Aleatórios// // Generating Random Numbers //
         memd2 = 10 + (rand() % 15);
         dimd1 = 20 + (rand() % 30);
         dimd2 = 20 + (rand() % 30);
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
         fadv1 = 10 + (rand() % 90);
         fadv2 = 1 + (rand() % 10);
-        medv1 = 25 + (rand() % 225); // Gerando Números Aleatórios//
+        medv1 = 25 + (rand() % 225); // Gerando Números Aleatórios// // Generating Random Numbers //
         medv2 = 1 + (rand() % 25);
         didv1 = 50 + (rand() % 950);
         didv2 = 1 + (rand() % 50);
         //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
-        // Placar
+        // Placar // Scoreboard
         printf("\n  > Total de acertos: %d\n  > Total de erros: %d\n", acertos, erros);
 
         // Menu
@@ -119,9 +157,9 @@ int main() // Jogo Matemático
             do
             {
 
-                odf = dificult(); // Escolha da Dificuldade
+                odf = dificult(); // Escolha da Dificuldade // Choose Difficulty
 
-                if (odf == 1) // Soma - Fácil //
+                if (odf == 1) // Soma - Fácil // // Sum - Easy //
                 {
                     system("cls");
                     do
@@ -136,7 +174,7 @@ int main() // Jogo Matemático
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -154,11 +192,11 @@ int main() // Jogo Matemático
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Soma - Fácil //
+                } // Fim - Soma - Fácil // // End - Sum - Easy //
 
-                if (odf == 2) // Soma - Médio //
+                if (odf == 2) // Soma - Médio // // Soma - Médio //
                 {
                     system("cls");
                     do
@@ -173,7 +211,7 @@ int main() // Jogo Matemático
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -191,11 +229,11 @@ int main() // Jogo Matemático
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Soma - Médio //
+                } // Fim - Soma - Médio // // End - Sum - Middle //
 
-                if (odf == 3) // Soma - Difícil //
+                if (odf == 3) // Soma - Difícil // // Sum - Hard //
                 {
                     system("cls");
                     do
@@ -210,7 +248,7 @@ int main() // Jogo Matemático
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -223,27 +261,28 @@ int main() // Jogo Matemático
                     if (resp != (diss1 + diss2))
                     {
 
-                        erros = serro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros
+                        erros = serro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros // errors
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Soma - Difícil //
+                } // Fim - Soma - Difícil //  
+                  // End - Sum - Hard //
 
-                if (odf == 4) // Voltar
+                if (odf == 4) // Voltar // Come back
                     system("cls");
 
-                if (odf > 4 || odf < 1) // Opção Inválida
+                if (odf > 4 || odf < 1) // Opção Inválida // Invalid option
 
-                    invalido(); // Opção inválida
+                    invalido(); // Opção inválida // Invalid option
 
             } while (odf > 4 || odf < 1);
 
-            break; // Parar
+            break; // Parar // Stop
 
-        } // Fim do Case 1 //
+        } // Fim do Case 1 // End of Case 1 //
 
         case 2:
         {
@@ -251,9 +290,10 @@ int main() // Jogo Matemático
             do
             {
 
-                odf = dificult(); // Escolha da Dificuldade
+                odf = dificult(); // Escolha da Dificuldade // Choose difficulty
 
-                if (odf == 1) // Subtração - Fácil //
+                if (odf == 1) // Subtração - Fácil // 
+                             // Subtraction - Easy //
                 {
                     system("cls");
                     do
@@ -264,11 +304,11 @@ int main() // Jogo Matemático
                         printf("\n\nA resposta da conta %c: \n", 130);
                         printf("\n%d - %d = ", fass1, fass2);
                         limp2 = scanf("%d", &resp);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -281,16 +321,17 @@ int main() // Jogo Matemático
                     if (resp != (fass1 - fass2))
                     {
 
-                        erros = suerro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros
+                        erros = suerro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros // errors
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos 
+                                                  // Hits
                     }
-                } // Fim - Subtração - Fácil //
+                } // Fim - Subtração - Fácil // // End - Subtraction - Easy //
 
-                if (odf == 2) // Subtração - Médio //
+                if (odf == 2) // Subtração - Médio // // Subtraction - Average //
                 {
                     system("cls");
                     do
@@ -301,11 +342,11 @@ int main() // Jogo Matemático
                         printf("\n\nA resposta da conta %c: \n", 130);
                         printf("\n%d - %d = ", mess1, mess2);
                         limp2 = scanf("%d", &resp);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -318,16 +359,16 @@ int main() // Jogo Matemático
                     if (resp != (mess1 - mess2))
                     {
 
-                        erros = suerro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros
+                        erros = suerro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros // errors
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Subtração - Médio //
+                } // Fim - Subtração - Médio // // End - Subtraction - Middle //
 
-                if (odf == 3) // Subtração - Difícil //
+                if (odf == 3) // Subtração - Difícil // // Subtraction - Hard //
                 {
                     system("cls");
                     do
@@ -338,11 +379,11 @@ int main() // Jogo Matemático
                         printf("\n\nA resposta da conta %c: \n", 130);
                         printf("\n%d - %d = ", diss1, diss2);
                         limp2 = scanf("%d", &resp);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -355,27 +396,31 @@ int main() // Jogo Matemático
                     if (resp != (diss1 - diss2))
                     {
 
-                        erros = suerro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros
+                        erros = suerro(fass1, fass2, mess1, mess2, diss1, diss2, erros, dif); // erros // errors
+
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Subtração - Difícil //
+                } // Fim - Subtração - Difícil // // End - Subtraction - Hard //
 
-                if (odf == 4) // Voltar
+                if (odf == 4) // Voltar // Come Back
                     system("cls");
 
-                if (odf > 4 || odf < 1) // Opção Inválida
+                if (odf > 4 || odf < 1) // Opção Inválida 
+                                       // Invalid option
 
-                    invalido(); // Opção inválida
+                    invalido(); // Opção inválida 
+                               // Invalid option 
 
             } while (odf > 4 || odf < 1);
 
-            break; // Parar
+            break; // Parar // Stop
 
-        } // Fim do case 2 //
+        } // Fim do case 2 // 
+          // End of case 2 //
 
         case 3:
         {
@@ -383,9 +428,9 @@ int main() // Jogo Matemático
             do
             {
 
-                odf = dificult(); // Escolha da Dificuldade
+                odf = dificult(); // Escolha da Dificuldade // Choose Difficulty
 
-                if (odf == 1) // Multiplicação - Fácil //
+                if (odf == 1) // Multiplicação - Fácil // // Multiplication - Easy //
                 {
                     system("cls");
                     do
@@ -396,11 +441,11 @@ int main() // Jogo Matemático
                         printf("\n\nA resposta da conta %c: \n", 130);
                         printf("\n%d x %d = ", famd1, famd2);
                         limp2 = scanf("%d", &resp);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -413,16 +458,17 @@ int main() // Jogo Matemático
                     if (resp != (famd1 * famd2))
                     {
 
-                        erros = muerro(famd1, famd2, memd1, memd2, dimd1, dimd2, erros, dif); // erros
+                        erros = muerro(famd1, famd2, memd1, memd2, dimd1, dimd2, erros, dif); // erros // errors 
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Multiplicação - Fácil //
+                } // Fim - Multiplicação - Fácil // 
+                  // End - Multiplication - Easy //
 
-                if (odf == 2) // Multiplicação - Médio //
+                if (odf == 2) // Multiplicação - Médio // // Multiplication - Average //
                 {
                     system("cls");
                     do
@@ -433,11 +479,11 @@ int main() // Jogo Matemático
                         printf("\n\nA resposta da conta %c: \n", 130);
                         printf("\n%d x %d = ", memd1, memd2);
                         limp2 = scanf("%d", &resp);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -450,16 +496,16 @@ int main() // Jogo Matemático
                     if (resp != (memd1 * memd2))
                     {
 
-                        erros = muerro(famd1, famd2, memd1, memd2, dimd1, dimd2, erros, dif); // erros
+                        erros = muerro(famd1, famd2, memd1, memd2, dimd1, dimd2, erros, dif); // erros // errors
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Multiplicação - Médio //
+                } // Fim - Multiplicação - Médio // // End - Multiplication - Middle //
 
-                if (odf == 3) // Multiplicação - Difícil //
+                if (odf == 3) // Multiplicação - Difícil // // Multiplication - Hard //
                 {
                     system("cls");
                     do
@@ -470,11 +516,11 @@ int main() // Jogo Matemático
                         printf("\n\nA resposta da conta %c: \n", 130);
                         printf("\n%d x %d = ", dimd1, dimd2);
                         limp2 = scanf("%d", &resp);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0);
 
@@ -487,27 +533,27 @@ int main() // Jogo Matemático
                     if (resp != (dimd1 * dimd2))
                     {
 
-                        erros = muerro(famd1, famd2, memd1, memd2, dimd1, dimd2, erros, dif); // erros
+                        erros = muerro(famd1, famd2, memd1, memd2, dimd1, dimd2, erros, dif); // erros // errors
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits 
                     }
-                } // Fim - Multiplicação - Dificil //
-
-                if (odf == 4) // Voltar
+                } // Fim - Multiplicação - Dificil // // End - Multiplication - Hard //
+ 
+                if (odf == 4) // Voltar // Come Back
                     system("cls");
 
-                if (odf > 4 || odf < 1) // Opção Inválida
+                if (odf > 4 || odf < 1) // Opção Inválida // Invalid option
 
-                    invalido(); // Opção inválida
+                    invalido(); // Opção inválida // Invalid option
 
             } while (odf > 4 || odf < 1);
 
-            break; // Parar
+            break; // Parar // Stop
 
-        } // Fim do case 3//
+        } // Fim do case 3// // End of case 3 //
 
         case 4:
         {
@@ -515,9 +561,9 @@ int main() // Jogo Matemático
             do
             {
 
-                odf = dificult(); // Escolha da Dificuldade
+                odf = dificult(); // Escolha da Dificuldade // Choose Difficulty
 
-                if (odf == 1) // Divisão - Fácil //
+                if (odf == 1) // Divisão - Fácil // // Division - Easy //
                 {
                     system("cls");
                     do
@@ -530,11 +576,11 @@ int main() // Jogo Matemático
                         limp2 = scanf("%d", &resp);
                         printf("\nAgora indique o resto: ");
                         limp3 = scanf("%d", &resto);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0 || limp3 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0 || limp3 == 0);
 
@@ -554,11 +600,12 @@ int main() // Jogo Matemático
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Divisão - Fácil //
+                } // Fim - Divisão - Fácil // 
+                 // End - Division - Easy //
 
-                if (odf == 2) // Divisão - Médio //
+                if (odf == 2) // Divisão - Médio // // Division - Medium //
                 {
                     system("cls");
                     do
@@ -576,7 +623,7 @@ int main() // Jogo Matemático
 
                         if (limp2 == 0 || limp3 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0 || limp3 == 0);
 
@@ -591,16 +638,16 @@ int main() // Jogo Matemático
                     if (resp != (medv1 / medv2) || resto != medv1 % medv2)
                     {
 
-                        erros = dierro(fadv1, fadv2, medv1, medv2, didv1, didv2, erros, dif); // erros
+                        erros = dierro(fadv1, fadv2, medv1, medv2, didv1, didv2, erros, dif); // erros // erors
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Divisão - Médio //
+                } // Fim - Divisão - Médio // // End - Division - Middle //
 
-                if (odf == 3) // Divisão - Difícil //
+                if (odf == 3) // Divisão - Difícil // // Division - Hard //
                 {
                     system("cls");
                     do
@@ -614,11 +661,11 @@ int main() // Jogo Matemático
                         limp2 = scanf("%d", &resp);
                         printf("\nAgora indique o resto: ");
                         limp3 = scanf("%d", &resto);
-                        fflush(stdin); // Limpeza
+                        fflush(stdin); // Limpeza // Clean
 
                         if (limp2 == 0 || limp3 == 0)
 
-                            cinvalido(); // Opção Inválida para Conta
+                            cinvalido(); // Opção Inválida para Conta // Invalid Option for Account
 
                     } while (limp2 == 0 || limp3 == 0);
 
@@ -633,38 +680,42 @@ int main() // Jogo Matemático
                     if (resp != (didv1 / didv2) || resto != didv1 % didv2)
                     {
 
-                        erros = dierro(fadv1, fadv2, medv1, medv2, didv1, didv2, erros, dif); // erros
+                        erros = dierro(fadv1, fadv2, medv1, medv2, didv1, didv2, erros, dif); // erros // errors 
                     }
                     else
                     {
 
-                        acertos = acerto(acertos); // Acertos
+                        acertos = acerto(acertos); // Acertos // Hits
                     }
-                } // Fim - Divisão - dificil //
+                } // Fim - Divisão - dificil // // End - Division - hard //
 
-                if (odf == 4) // Voltar
+                if (odf == 4) // Voltar // Come Back
                     system("cls");
 
-                if (odf > 4 || odf < 1) // Opção Inválida
+                if (odf > 4 || odf < 1) // Opção Inválida 
+                                        // Invalid option
 
-                    invalido(); // Opção inválida
+                    invalido(); // Opção inválida 
+                               // Invalid option
 
             } while (odf > 4 || odf < 1);
 
-            break; // Parar
+            break; // Parar // Stop
 
-        } // Fim do case 4 //
+        } // Fim do case 4 // 
+         // End of case 4 //
 
-        case 5: // Gabarito
+        case 5: // Gabarito // Feedback
         {
             system("cls");
 
             do
             {
 
-                odg = gabarito(); // Menu do Gabarito
+                odg = gabarito(); // Menu do Gabarito 
+                                  // Feedback Menu
 
-                if (odg == 1) // Soma
+                if (odg == 1) // Soma // Sum
                 {
                     system("cls");
 
@@ -673,7 +724,7 @@ int main() // Jogo Matemático
 
                         if (csoma == 0)
 
-                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez
+                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez // The Player Hasn't Played Once
 
                         else
                             printf("\tSuas Respostas\t\tRespostas Certas\t\tDificuldade\n");
@@ -697,14 +748,14 @@ int main() // Jogo Matemático
                                 printf("");
                         }
 
-                        odg = voltar(); // Menu de Voltar
+                        odg = voltar(); // Menu de Voltar // Back Menu
 
                     } while (odg != 5);
                     system("cls");
                     odg = 6;
                 }
 
-                if (odg == 2) // Subtração
+                if (odg == 2) // Subtração // Subtraction 
                 {
                     system("cls");
 
@@ -713,7 +764,8 @@ int main() // Jogo Matemático
 
                         if (csub == 0)
 
-                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez
+                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez 
+                                                                                       // The Player Hasn't Played Once
 
                         else
                             printf("\tSuas Respostas\t\tRespostas Certas\t\tDificuldade\n");
@@ -737,14 +789,14 @@ int main() // Jogo Matemático
                                 printf("");
                         }
 
-                        odg = voltar(); // Menu de Voltar
+                        odg = voltar(); // Menu de Voltar // Back Menu
 
                     } while (odg != 5);
                     system("cls");
                     odg = 6;
                 }
 
-                if (odg == 3) // Multiplicação
+                if (odg == 3) // Multiplicação // Multiplication
                 {
                     system("cls");
 
@@ -753,8 +805,8 @@ int main() // Jogo Matemático
 
                         if (cmul == 0)
 
-                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez
-
+                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez // The Player Hasn't Played Once
+ 
                         else
                             printf("\tSuas Respostas\t\tRespostas Certas\t\tDificuldade\n");
 
@@ -777,14 +829,14 @@ int main() // Jogo Matemático
                                 printf("");
                         }
 
-                        odg = voltar(); // Menu de Voltar
+                        odg = voltar(); // Menu de Voltar // Back Menu
 
                     } while (odg != 5);
                     system("cls");
                     odg = 6;
                 }
 
-                if (odg == 4) // Divisão
+                if (odg == 4) // Divisão // Division
                 {
                     system("cls");
 
@@ -792,7 +844,7 @@ int main() // Jogo Matemático
                     {
 
                         if (cdiv == 0)
-                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez
+                            printf("Nenhum n%cmero foi registrado no momento\n", 163); // O Jogador Ainda Não Jogou Nenhuma Vez // The Player Hasn't Played Once
 
                         else
                             printf("\tSuas Respostas\t\tRestos Digitados\tRespostas Certas\tRestos Certos\tDificuldade\n");
@@ -816,7 +868,7 @@ int main() // Jogo Matemático
                                 printf("");
                         }
 
-                        odg = voltar(); // Menu de Voltar
+                        odg = voltar(); // Menu de Voltar // Back Menu
 
                     } while (odg != 5);
                     system("cls");
@@ -827,47 +879,49 @@ int main() // Jogo Matemático
 
             system("cls");
 
-            break; // Parar
+            break; // Parar // Stop
 
-        } // Fim do case 5 //
+        } // Fim do case 5 // // End of case 5 //
 
-        case 6: // Opção de Finalizar
+        case 6: // Opção de Finalizar // End option
         {
             system("cls");
             do
             {
 
-                odf = final(); // Menu de Finalização
+                odf = final(); // Menu de Finalização // End menu
 
-                if (odf == 1) // Fim do Jogo
+
+                if (odf == 1) // Fim do Jogo // End of the game
                     fim();
 
-                if (odf == 2) // Voltar para o Menu
+                if (odf == 2) // Voltar para o Menu // Return to the Menu
                     system("cls");
 
-                if (odf != 1 && odf != 2) // Opção Inválida
+                if (odf != 1 && odf != 2) // Opção Inválida // Invalid option
 
-                    invalido(); // Opção inválida
+                    invalido(); // Opção inválida // Invalid option
 
             } while (odf != 1 && odf != 2);
 
-            break; // Parar
+            break; // Parar // Stop
 
-        } // Quit Game //
+        } // Quit Game // 
+         // Quit Game //
 
-        default: // Opção Inválida do Menu
+        default: // Opção Inválida do Menu // Invalid Menu Option
         {
-            invalido(); // Opção inválida
+            invalido(); // Opção inválida // Invalid Option
 
-            break; // parar
+            break; // parar // stop
 
-        } // Fim do default //
+        } // Fim do default // // end of default //
 
-        } // Fim Switch //
+        } // Fim Switch // // End Switch //
 
-        vcont++; // Gravar na Próxima Coluna do Vetor
+        vcont++; // Gravar na Próxima Coluna do Vetor // Write to Next Column of Vector
 
-    } while (op != 6 || odf == 2); // Voltar para o Menu //
+    } while (op != 6 || odf == 2); // Voltar para o Menu // // Return to the Menu //
     return 0;
 
-} // Fim do código //
+} // Fim do código // // End of code //
